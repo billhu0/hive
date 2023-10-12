@@ -65,6 +65,7 @@ public class YarnQueueHelper {
 
     if (isHA) {
       String[] rmids = conf.getStrings(yarn_HA_rmids);
+      Preconditions.checkNotNull(rmids, "yarn_HA_rmids must be set in yarn HA mode");
       if (sslForYarn == true) {
         for (String rmid : rmids) {
           nodeList.addAll(Arrays.asList(conf.getTrimmedStrings(webapp_ssl_conf_key + "."+rmid)));

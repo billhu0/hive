@@ -4611,7 +4611,14 @@ import com.google.common.annotations.VisibleForTesting;
     }
     sb.append("sorted projectionColumnMap ").append(sortedColumnMap).append(", ");
 
+    if (initialColumnNames == null) {
+      throw new IllegalStateException("initialColumnNames have not been initialized.");
+    }
     sb.append("initial column names ").append(initialColumnNames.toString()).append(",");
+
+    if (initialTypeInfos == null) {
+      throw new IllegalStateException("InitialTypeInfos have not been initialized.");
+    }
     sb.append("initial type infos ").append(initialTypeInfos.toString()).append(", ");
 
     sb.append("scratchColumnTypeNames ").append(Arrays.toString(getScratchColumnTypeNames()));
